@@ -12,9 +12,9 @@ public class Card
     };
     public enum patterns
     {
+        empty,
         solid,
-        striped,
-        empty
+        striped
     };
     public enum shapes
     {

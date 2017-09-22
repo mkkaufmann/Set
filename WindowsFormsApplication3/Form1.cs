@@ -12,16 +12,18 @@ namespace WindowsFormsApplication3
 {
     public partial class Form1 : Form
     {
+        public List<PictureBox> boxes = new List<PictureBox>();
+        public List<Card> allCards;
+
+        public List<Card> cardsInDeck;
+        public List<Card> cardsInPlay = new List<Card>();
         public Form1()
         {
             InitializeComponent();
-            List<PictureBox> boxes = new List<PictureBox>();
+            
             boxes.AddRange(new PictureBox[]{ pictureBox1, pictureBox2, pictureBox3, pictureBox4, pictureBox5, pictureBox6, pictureBox7, pictureBox8, pictureBox9, pictureBox10, pictureBox11, pictureBox12});
-            List<Card> allCards = GenerateDeck(loadImages());
-
-            List<Card> cardsInDeck = allCards;
-            List<Card> cardsInPlay = new List<Card>();
-
+            allCards = GenerateDeck(loadImages());
+            cardsInDeck = allCards;
             Random random = new Random();
             foreach (PictureBox box in boxes)
             {
