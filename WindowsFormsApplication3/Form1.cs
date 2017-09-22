@@ -17,11 +17,47 @@ namespace WindowsFormsApplication3
             InitializeComponent();
             List<PictureBox> boxes = new List<PictureBox>();
             boxes.AddRange(new PictureBox[]{ pictureBox1, pictureBox2, pictureBox3, pictureBox4, pictureBox5, pictureBox6, pictureBox7, pictureBox8, pictureBox9, pictureBox10, pictureBox11, pictureBox12});
+            List<Card> allCards = GenerateDeck(loadImages());
+
+            List<Card> cardsInDeck = allCards;
+            List<Card> cardsInPlay = new List<Card>();
+
+            Random random = new Random();
+            foreach (PictureBox box in boxes)
+            {
+                Card selectedCard = cardsInDeck[random.Next(cardsInDeck.Count())];
+                cardsInDeck.Remove(selectedCard);
+                cardsInPlay.Add(selectedCard);
+                box.Image = selectedCard.cardImage;
+
+            }
+        }
+        public List<Card> GenerateDeck(List<Image> images)
+        {
+            List<Card> cards = new List<Card>();
+            int imageIndex = 0;
+            for (int i = 0; i < 3; i++) {
+                for (int j = 1; j <= 3; j++)
+                {
+                    for (int k = 0; k < 3; k++)
+                    {
+                        for (int l = 0; l < 3; l++)
+                        {
+                            cards.Add(new Card((Card.colors)i, j, (Card.patterns)k, (Card.shapes)l, images[imageIndex]));
+                            imageIndex++;
+                        }
+                    }
+                }
+            }
+            return cards;
+        }
+        public List<Image> loadImages()
+        {
             List<Image> images = new List<Image>();
             string fileName = "";
             string color = "";
-            string pattern ="";
-            string shape="";
+            string pattern = "";
+            string shape = "";
             for (int i = 0; i < 3; i++)
             {
                 switch (i)
@@ -66,15 +102,15 @@ namespace WindowsFormsApplication3
                         }
                         for (int l = 1; l < 4; l++)
                         {
-                            fileName = color + pattern + shape + l.ToString();
+                            fileName = "../../" + color + pattern + shape + l.ToString() + ".png";
                             images.Add(Image.FromFile(fileName));
                         }
                     }
                 }
             }
+            return images;
         }
-
-        private void pictureBox_Click(object sender, EventArgs e)
+        private void pictureBox_Click(object sender, EventArgs e)//Handles all pictureBox clicks
         {
 
         }

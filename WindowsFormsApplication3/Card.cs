@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Windows.Forms;
+using System.Drawing;
 
 public class Card
 {
@@ -25,11 +27,14 @@ public class Card
     public int cardNum;
     public patterns cardPattern;
     public shapes cardShape;
-    public Card(colors color, int num, patterns pattern, shapes shape)
+    public PictureBox cardBox;
+    public Image cardImage;
+    public Card(colors color, int num, patterns pattern, shapes shape, Image image)
     {
         cardColor = color;
         cardNum = num;
         cardPattern = pattern;
         cardShape = shape;
+        cardImage = image;
     }
 }
