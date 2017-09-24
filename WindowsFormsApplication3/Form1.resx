@@ -117,4 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label1.Text" xml:space="preserve">
+    <value>To play, you must select 3 cards that make a set. 3 cards make a set if each of the properties of the card is either the same among all cards in the set, or all different. The properties are: pattern, shape, color, and number.
+
+</value>
+  </data>
 </root>
