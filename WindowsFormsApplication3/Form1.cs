@@ -110,7 +110,7 @@ namespace WindowsFormsApplication3
                         }
                         for (int l = 1; l < 4; l++)
                         {
-                            fileName = "../" + color + pattern + shape + l.ToString() + ".png";
+                            fileName = "../Images/" + color + pattern + shape + l.ToString() + ".png";
                             images.Add(Image.FromFile(fileName));
                         }
                     }
